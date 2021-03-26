@@ -15,4 +15,4 @@ RUN /go/bin/go build
 FROM debian:10-slim
 COPY --from=build /azure-storage-azcopy/azure-storage-azcopy azcopy
 
-#ENTRYPOINT ["./azcopy"]
+ENTRYPOINT ["./azcopy"]
