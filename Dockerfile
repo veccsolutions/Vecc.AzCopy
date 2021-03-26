@@ -2,9 +2,9 @@ FROM debian:10 AS build
 
 RUN apt update
 RUN apt install -y curl git
-RUN if [ "`uname -m`" == "aarch64" ]; then curl -L https://golang.org/dl/go1.16.2.linux-arm64.tar.gz -o go.tar.gz; fi
+RUN if [ "`uname -m`" = "aarch64" ]; then curl -L https://golang.org/dl/go1.16.2.linux-arm64.tar.gz -o go.tar.gz; fi
 RUN if [ "`uname -m`" != "aarch64" ]; then curl -L https://golang.org/dl/go1.16.2.linux-amd64.tar.gz -o go.tar.gz; fi
-RUN tar -xvf go.tar.gz
+RUN tar -xf go.tar.gz
 RUN git clone https://github.com/Azure/azure-storage-azcopy.git
 
 WORKDIR azure-storage-azcopy
