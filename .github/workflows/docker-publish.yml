@@ -35,4 +35,4 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64 #,linux/arm64
           push: true
-          tags: "ghcr.io/veccsolutions/docker-azcopy:${{ github.run_number }},ghcr.io/veccsolutions/docker-azcopy:latest"
+          tags: "ghcr.io/veccsolutions/azcopy:${{ github.run_number }},ghcr.io/veccsolutions/azcopy:latest"
