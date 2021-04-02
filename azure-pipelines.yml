@@ -16,8 +16,9 @@ steps:
   displayName: Build
   inputs:
     script: |
-      docker run --privileged --rm tonistiigi/binfmt
-      docker buildx create --use
+      docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+      docker buildx create --name multiarch --driver docker-container --use
+      # docker buildx create --use
       docker buildx build --platform linux/arm64 \
         -t harbor.veccsolutions.org/vecc/azcopy:$(build.buildNumber) \
         -t harbor.veccsolutions.org/vecc/azcopy:latest \
