@@ -17,7 +17,7 @@ steps:
   inputs:
     script: |
       docker buildx create --use
-      docker buildx build --platform linux/amd64,linux/arm64 \
+      docker buildx build --platform linux/arm64 \
         -t harbor.veccsolutions.org/vecc/azcopy:$(build.buildNumber) \
         -t harbor.veccsolutions.org/vecc/azcopy:latest \
         --push \
