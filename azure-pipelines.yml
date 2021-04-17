@@ -10,7 +10,7 @@ steps:
 - task: Docker@2
   displayName: Login
   inputs:
-    containerRegistry: 'Harbor-Vecc-Docker'
+    containerRegistry: 'crvecc.azurecr.io-Docker'
     command: 'login'
 - task: CmdLine@2
   displayName: Build
@@ -20,7 +20,7 @@ steps:
       docker buildx create --name multiarch --driver docker-container --use
       # docker buildx create --use
       docker buildx build --platform linux/amd64,linux/arm64 \
-        -t harbor.veccsolutions.org/vecc/azcopy:$(build.buildNumber) \
-        -t harbor.veccsolutions.org/vecc/azcopy:latest \
+        -t crvecc.azurecr.io/azcopy:$(build.buildNumber) \
+        -t crvecc.azurecr.io/azcopy:latest \
         --push \
         .
